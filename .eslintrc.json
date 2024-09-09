@@ -1,0 +1,87 @@
+{
+	"parser": "@typescript-eslint/parser",
+	"parserOptions": {
+		"ecmaFeatures": {
+			"jsx": true
+		}
+	},
+	"plugins": ["react", "react-hooks", "@typescript-eslint"],
+	"extends": [
+		// Base ESLint recommended rules
+		"eslint:recommended",
+
+		// Prettier configuration to ensure formatting consistency
+		"prettier",
+		"eslint-config-prettier",
+
+		// TypeScript and React base configurations
+		"plugin:@typescript-eslint/recommended",
+		"plugin:react/recommended",
+		"plugin:react-hooks/recommended",
+		"plugin:import/typescript",
+		"plugin:import/warnings",
+
+		// React specific rules for handling the JSX runtime
+		"plugin:react/jsx-runtime"
+	],
+	"rules": {
+		// Best Practices
+		"no-console": "error",
+		"no-unused-vars": "error",
+		"max-len": [
+			"warn",
+			{
+				"code": 160,
+				"ignoreComments": true,
+				"ignoreUrls": true
+			}
+		],
+		"import/extensions": [
+			"error",
+			"ignorePackages",
+			{
+				"ts": "never",
+				"tsx": "never",
+				"js": "never",
+				"jsx": "never"
+			}
+		],
+		"import/prefer-default-export": "off",
+		"react/prop-types": "off",
+
+		// Possible Errors
+		"no-undef": "off",
+		"no-use-before-define": "off",
+		"@typescript-eslint/no-use-before-define": "error",
+		"@typescript-eslint/no-explicit-any": "warn",
+		"@typescript-eslint/no-unused-vars": [
+			"off",
+			{
+				"ignoreRestSiblings": true
+			}
+		],
+		"react-hooks/rules-of-hooks": "error",
+		"react-hooks/exhaustive-deps": "off",
+
+		// React Rules
+		"react/react-in-jsx-scope": "off",
+		"react/jsx-uses-react": "error",
+		"react/jsx-uses-vars": "error",
+		"react/jsx-pascal-case": "off",
+		"react/button-has-type": "warn",
+		"react/jsx-filename-extension": [
+			"warn",
+			{
+				"extensions": [".tsx"]
+			}
+		]
+	},
+	"settings": {
+		"import/resolver": {
+			"typescript": {
+				"alwaysTryTypes": true,
+				"project": ["./tsconfig.json"]
+			}
+		}
+	}
+}
